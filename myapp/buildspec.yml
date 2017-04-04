@@ -1,11 +1,13 @@
+--- 
+phases: 
+  discard-paths: true
+  files: 
+    - myapp.war
+  post_build: 
+    commands: 
+      - "echo Build completed on `date`"
+      - "mvn package"
+      - "echo \"******** Uploading to S3 ********\""
+      - "aws s3 sync myapp.war s3://ashokjenkins"
 version: 0.1
 
-phases:
-  post_build:
-    commands:
-      - echo Build completed on `date`
-      - mvn package
-artifacts:
-  files:
-    - target/spring-mvc-showcase.war
-  discard-paths: yes
