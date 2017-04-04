@@ -7,5 +7,5 @@ phases:
       - mvn package
 artifacts:
   files:
-    - target/majava.war
+    - target/spring-mvc-showcase.war
   discard-paths: yes
