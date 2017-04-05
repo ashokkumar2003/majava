@@ -2,9 +2,9 @@ version: 0.0
 os: linux
 files:
    - source: /
-     destination: /usr/share/tomcat7/webapps/
+     destination: /usr/share/tomcat7/webapps
 permissions:
-   - object: /usr/share/tomcat7/webapps/
+   - object: /usr/share/tomcat7/webapps
      pattern: "**"
      owner: tomcat
      group: tomcat
