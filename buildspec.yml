@@ -1,13 +1,15 @@
---- 
-phases: 
-  discard-paths: true
-  files: 
-    - myapp.war
-  post_build: 
-    commands: 
-      - "echo Build completed on `date`"
-      - "mvn package"
-      - "echo \"******** Uploading to S3 ********\""
-      - "aws s3 sync myapp.war s3://ashokjenkins"
 version: 0.1
-
+phases:
+  install:
+    commands:
+      - apt-get install -y zip
+  build:
+    commands:
+      - cd my-web-app && mvn clean install && cd target && zip my-web-app.war.zip my-web-app.war 
+  post_build:
+    commands:
+      - echo Build completed on `date`
+artifacts:
+   files:
+     - '**/*.zip'
+   discard-paths: yes
