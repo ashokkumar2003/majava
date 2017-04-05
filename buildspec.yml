@@ -5,11 +5,11 @@ phases:
       - apt-get install -y zip
   build:
     commands:
-      - cd my-web-app && mvn clean install && cd target && zip my-web-app.war.zip my-web-app.war 
+      - cd myapp && mvn clean install && cd target && zip myapp.war.zip myapp.war 
   post_build:
     commands:
       - echo Build completed on `date`
 artifacts:
    files:
-     - '**/*.zip'
+     - '**/*.*'
    discard-paths: yes
